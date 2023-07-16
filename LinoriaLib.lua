@@ -52,7 +52,7 @@ local Library = {
     IsMobile = false;
     DevicePlatform = Enum.Platform.None;
     CanDrag = true;
-	  ShowCustomCursor = false; 
+    ShowCustomCursor = false; 
 };
 
 pcall(function() Library.DevicePlatform = InputService:GetPlatform(); end); -- For safety so the UI library doesn't error.

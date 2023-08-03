@@ -22,7 +22,7 @@ pcall(function()
 end)
 
 local function saveConfig()
-    writefile("Testsssss.txt", HttpService:JSONEncode(config))
+    writefile(getgenv().UiSetting.filename, HttpService:JSONEncode(config))
 end
 
 pfp = userinfo["pfp"] or "https://www.roblox.com/headshot-thumbnail/image?userId=".. game.Players.LocalPlayer.UserId .."&width=420&height=420&format=png"

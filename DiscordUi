@@ -14,7 +14,7 @@ local tag
 local userinfo = {}
 
 pcall(function()
-    config = HttpService:JSONDecode(readfile("getgenv().UiSetting.filename"))
+    config = HttpService:JSONDecode(readfile(getgenv().UiSetting.filename))
 end)
 
 pcall(function()

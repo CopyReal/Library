@@ -1,3 +1,6 @@
+-- // Big Credits to Dawid for the UI Library 
+-- // Thank you!
+
 local DiscordLib = {}
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
@@ -11,7 +14,7 @@ local tag
 local userinfo = {}
 
 pcall(function()
-    config = HttpService:JSONDecode(readfile(getgenv().UiSettings.filename))
+    config = HttpService:JSONDecode(readfile(getgenv().UiSetting.filename))
 end)
 
 pcall(function()
@@ -19,7 +22,7 @@ pcall(function()
 end)
 
 local function saveConfig()
-    writefile(getgenv().UiSettings.filename, HttpService:JSONEncode(config))
+    writefile(getgenv().UiSetting.filename, HttpService:JSONEncode(config))
 end
 
 pfp = userinfo["pfp"] or "https://www.roblox.com/headshot-thumbnail/image?userId=".. game.Players.LocalPlayer.UserId .."&width=420&height=420&format=png"
@@ -2542,7 +2545,7 @@ function DiscordLib:Window(text)
 						if input.UserInputType == Enum.UserInputType.MouseButton1 then
 							dragging = false
 							ValueBubble.Visible = false
-							saveSliderValue(value)
+							saveSliderValue(math.floor(((Zip.Position.X.Scale * max) / max) * (max - min) + min))
 						end
 					end
 				)
@@ -2550,7 +2553,7 @@ function DiscordLib:Window(text)
 				function(input)
 					if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
 						move(input)
-						saveSliderValue(value)
+						saveSliderValue(math.floor(((Zip.Position.X.Scale * max) / max) * (max - min) + min))
 					end
 				end
 				)

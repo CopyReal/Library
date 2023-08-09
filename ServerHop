@@ -9,12 +9,10 @@ local Deleted = false
 local File = pcall(function()
     AllIDs = game:GetService('HttpService'):JSONDecode(readfile("NotSameServers.json"))
 end)
-
 if not File then
     table.insert(AllIDs, actualHour)
     writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
 end
-
 function TPReturner()
     local Site;
     if foundAnything == "" then
@@ -72,5 +70,4 @@ function Teleport()
     end
 end
 
--- Server Hop (Teleport)
-Teleport()
+return Teleport
